@@ -2,7 +2,7 @@
 An analog clock with smooth running pointers for [Übersicht](tracesof.net/uebersicht/) (that is also reasonably efficient, see below)
 ![screenshot](https://cloud.githubusercontent.com/assets/17210173/20464803/fe62ce80-af4e-11e6-80d6-d5c0890f8ef1.png)
 ## Configuration
-At the top of the index.coffee file is a section with styling options, the standard setting look like this:
+At the top of the index.coffee file is a section with styling options, the default options are as follows:
 ```coffeescript
 options =
   pos:
