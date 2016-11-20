@@ -33,9 +33,11 @@ options =
   intervalLength: 30  # interval between the transition triggers in seconds (also change the refresh rate)
   backgroundBlur: false
 ```
-## Known Bugs
+## Bugs
+If any bugs appear please file an issue, I will then see if I can fix them.
+### Known Bugs
 + The background blur filter of the clock is not clipped properly
 
 ## Notes
 This clock works by using css transitions of the transform property of the pointers. Transitions of the transform property are hardware accelerated, this allows the clock to be reasonably efficient while also having silky smooth 60fps animations (best case).  
-Since tests using different transition trigger intervals other than 30s have yet to be made, the clock might not work as expected using a different interval.
+Since tests using different transition trigger intervals other than 30s have yet to be made, the clock might not work as expected using a different interval.  
