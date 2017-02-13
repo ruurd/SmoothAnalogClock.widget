@@ -8,15 +8,15 @@ options =
   scale: 1  # for retina displays set to 2
   fontSize: 48   # in px
   secPtr:
-    color: "rgb(239,53,114)" # css color string
+    color: "rgb(209,97,143)" # css color string
     width: 3     # in px
     length: 230  # in px
   minPtr:
-    color: "rgb(107,191,221)" # css color string
+    color: "rgb(120,214,166)" # css color string
     width: 10     # in px
     length: 184   # in px
   hrPtr:
-    color: "rgb(106,147,211)" # css color string
+    color: "rgb(71,171,163)" # css color string
     width: 10     # in px
     length: 128   # in px
   markerOffset: 4 # offset from the border of the clock in px
@@ -33,8 +33,6 @@ refreshFrequency: "30s" # change this as well when changing the intervalLength
 
 # End of styling options
 
-scriptLoaded = false  # variable that prevents errors because of unloaded date.js
-
 render: (_) -> """
 <div class="clock">
   <div class="markers"></div>
@@ -46,11 +44,6 @@ render: (_) -> """
 """
 
 afterRender: (domEl) ->
-  tmpThis = this
-  $.getScript('SmoothAnalogClock.widget/lib/date.js', () ->
-    scriptLoaded = true
-    tmpThis.refresh()
-  )
   # Initialize the markers (I just wanted to keep the render function small and tidy)
   markers = $(domEl).find('.markers')
   for i in [0...12]
@@ -65,12 +58,12 @@ afterRender: (domEl) ->
         cls = "minor"
       rotation = -60 + 6 * (i * 5 + j)
       markers.append('<div id="'+id+'" class="'+cls+'" style="transform: rotate('+rotation+'deg);"></div>')
+  # Prevent blocking of the clock for the refresh duration after widget refresh
+  setTimeout(@refresh)
 
 update: (_, domEl) ->
-  return if not scriptLoaded
-
   # Use the time elapsed (in ms) since 0:00 of the current day
-  time = Date.now() - Date.today().getTime()
+  time = Date.now() - (new Date()).setHours(0,0,0,0)
 
   div = $(domEl)
   pointers = div.find('.secPtr, .minPtr, .hrPtr')
@@ -186,3 +179,4 @@ style: """
   background-color: #bcbcbc
   transform-origin: #{(-options.size / 2 + options.minorMarker.length + options.markerOffset) * options.scale}px 50%
 """
+
