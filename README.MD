@@ -40,7 +40,7 @@ If any bugs appear please file an issue, I will then see if I can fix them.
 
 ### Contributors
 Thanks to [@ruurd](https://github.com/ruurd) who discovered a bug in how the current time of day in seconds was computed
-and suggested code to fix [the issue](https://github.com/N00bySumairu/SmoothAnalogClock.widget/issues/2).
+and suggested code to fix [the issue](https://github.com/ruurd/SmoothAnalogClock.widget/issues/2).
 
 ## Notes
 This clock works by using css transitions of the transform property of the pointers. Transitions of the transform property are hardware accelerated, this allows the clock to be reasonably efficient while also having silky smooth 60fps animations (best case).  

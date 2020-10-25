@@ -62,7 +62,7 @@ afterRender: (domEl) ->
   setTimeout(@refresh)
 
 update: (_, domEl) ->
-  # compute the current time of day in seconds
+  # compute the current time of day in milliseconds
   # note: this is not always the time elapsed since 00:00 of that day, as mentioned by @ruurd
   now = new Date()
   time = now.getHours()   * 1000 * 60 * 60 +
