@@ -62,8 +62,13 @@ afterRender: (domEl) ->
   setTimeout(@refresh)
 
 update: (_, domEl) ->
-  # Use the time elapsed (in ms) since 0:00 of the current day
-  time = Date.now() - (new Date()).setHours(0,0,0,0)
+  # compute the current time of day in seconds
+  # note: this is not always the time elapsed since 00:00 of that day, as mentioned by @ruurd
+  now = new Date()
+  time = now.getHours()   * 1000 * 60 * 60 +
+         now.getMinutes() * 1000 * 60 +
+         now.getSeconds() * 1000 +
+         now.getMilliseconds()
 
   div = $(domEl)
   pointers = div.find('.secPtr, .minPtr, .hrPtr')
