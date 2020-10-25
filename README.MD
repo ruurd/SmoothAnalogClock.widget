@@ -1,6 +1,12 @@
 # Smooth Analog Clock for [Übersicht](tracesof.net/uebersicht/)
 An analog clock with smooth running pointers for [Übersicht](tracesof.net/uebersicht/) (that is also reasonably efficient, see below)
 ![screenshot](https://cloud.githubusercontent.com/assets/17210173/20464803/fe62ce80-af4e-11e6-80d6-d5c0890f8ef1.png)
+
+## History
+This Übersicht widget has been created by [N00bySumairu](https://github.com/N00bySumairu). Many thanks for this magnificent clock. 
+I have it running in a corner of my desktop and noticed a little problem. Fixed it and because N00bySumairu does not have a Macbook
+anymore he suggested that he transfer this repo to me for maintenance. Honored to do that. Thank you NoobySumairu for all your work.
+
 ## Configuration
 At the top of the index.coffee file is a section with styling options, the default options are as follows:
 ```coffeescript
@@ -33,8 +39,10 @@ options =
   intervalLength: 30  # interval between the transition triggers in seconds (also change the refresh rate)
   backgroundBlur: false
 ```
+
 ## Bugs
 If any bugs appear please file an issue, I will then see if I can fix them.
+
 ### Known Bugs
 + The background blur filter of the clock is not clipped properly
 
